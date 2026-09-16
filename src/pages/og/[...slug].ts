@@ -6,6 +6,7 @@ import { googleFonts } from "takumi-js/helpers";
 import { ImageResponse } from "takumi-js/response";
 import { profileConfig } from "@/config/profileConfig";
 import { siteConfig } from "@/config/siteConfig";
+import { resolveThemeColor } from "@/utils/color-utils";
 import { removeFileExtension } from "@/utils/url-utils";
 
 export const prerender = true;
@@ -191,11 +192,10 @@ export async function GET({
 		iconPath = (pngFavicon ?? siteConfig.favicon[0]).src;
 	}
 
-	const hue = siteConfig.themeColor.hue;
-	const primaryColor = `hsl(${hue}, 90%, 65%)`;
+	const primaryColor = resolveThemeColor();
 	const textColor = "hsl(0, 0%, 95%)";
-	const subtleTextColor = `hsl(${hue}, 10%, 75%)`;
-	const backgroundColor = `hsl(${hue}, 15%, 12%)`;
+	const subtleTextColor = `color-mix(in srgb, ${primaryColor} 30%, white)`;
+	const backgroundColor = `color-mix(in srgb, ${primaryColor} 15%, hsl(0, 0%, 8%))`;
 
 	const pubDate = post.data.published.toLocaleDateString("en-US", {
 		year: "numeric",

@@ -39,7 +39,8 @@ export type SiteConfig = {
 	lang: "en" | "zh_CN" | "zh_TW" | "ja" | "ru" | "ko";
 
 	themeColor: {
-		hue: number;
+		/** 基础颜色（hex/rgb 等，如 "#8B0000"），主题色相由此派生 */
+		color: string;
 		defaultMode?: LIGHT_DARK_MODE; // 默认模式：浅色、深色或跟随系统
 	};
 

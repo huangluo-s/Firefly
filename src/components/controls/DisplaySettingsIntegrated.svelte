@@ -14,13 +14,12 @@ import {
 	getDefaultCardFollowThemeEnabled,
 	getDefaultFullscreenLayout,
 	getDefaultGradientEnabled,
-	getDefaultHue,
 	getDefaultOverlayBlur,
 	getDefaultOverlayCardOpacity,
 	getDefaultOverlayOpacity,
 	getDefaultSakuraEnabled,
+	getDefaultThemeColor,
 	getDefaultWavesEnabled,
-	getHue,
 	getStoredBannerCarouselEnabled,
 	getStoredBannerTitleEnabled,
 	getStoredCardBorderEnabled,
@@ -33,17 +32,18 @@ import {
 	getStoredSakuraEnabled,
 	getStoredWallpaperMode,
 	getStoredWavesEnabled,
+	getThemeColor,
 	setBannerCarouselEnabled,
 	setBannerTitleEnabled,
 	setCardBorderEnabled,
 	setCardFollowThemeEnabled,
 	setFullscreenLayout,
 	setGradientEnabled,
-	setHue,
 	setOverlayBlur,
 	setOverlayCardOpacity,
 	setOverlayOpacity,
 	setSakuraEnabled,
+	setThemeColor,
 	setWallpaperMode,
 	setWavesEnabled,
 } from "@utils/setting-utils";
@@ -71,8 +71,8 @@ type OverlaySliderItem = {
 
 type TabKey = "appearance" | "wallpaper" | "effects";
 
-let hue = $state(getHue());
-const defaultHue = getDefaultHue();
+let themeColor = $state(getThemeColor());
+const defaultThemeColor = getDefaultThemeColor();
 let wallpaperMode: WALLPAPER_MODE = $state(backgroundWallpaper.mode);
 const defaultWallpaperMode = backgroundWallpaper.mode;
 let fullscreenLayout: FullscreenWallpaperLayout = $state(
@@ -319,9 +319,8 @@ let hasVisibleOverlaySlider = $derived(
 	overlaySliderItems.some((item) => item.enabled),
 );
 
-function resetHue() {
-	hue = getDefaultHue();
-	requestAnimationFrame(refreshAllRangeProgress);
+function resetThemeColor() {
+	themeColor = getDefaultThemeColor();
 }
 
 function resetWallpaperMode() {
@@ -626,8 +625,8 @@ onMount(() => {
 });
 
 $effect(() => {
-	if (hue || hue === 0) {
-		setHue(hue);
+	if (themeColor) {
+		setThemeColor(themeColor);
 	}
 });
 
@@ -689,20 +688,20 @@ $effect(() => {
 			<div class="section-title">
 				{i18n(I18nKey.themeColor)}
 				<button aria-label="Reset to Default" class="btn-regular rounded-md active:scale-90"
-						class:opacity-0={hue === defaultHue} class:pointer-events-none={hue === defaultHue}
-						disabled={hue === defaultHue} aria-hidden={hue === defaultHue ? "true" : undefined} onclick={resetHue}>
+						class:opacity-0={themeColor === defaultThemeColor} class:pointer-events-none={themeColor === defaultThemeColor}
+						disabled={themeColor === defaultThemeColor} aria-hidden={themeColor === defaultThemeColor ? "true" : undefined} onclick={resetThemeColor}>
 					<div class="text-(--btn-content)">
 						<Icon icon="fa7-solid:arrow-rotate-left" class="text-[0.75rem]"></Icon>
 					</div>
 				</button>
 				<div id="hueValue" class="transition bg-(--btn-regular-bg) rounded-md flex justify-center
-				font-bold items-center text-(--btn-content)">
-					{hue}
+				font-bold items-center text-(--btn-content) uppercase text-xs tracking-wider">
+					{themeColor}
 				</div>
 			</div>
-			<div class="hue-slider-shell w-full h-6 px-1 bg-[oklch(0.80_0.10_0)] dark:bg-[oklch(0.70_0.10_0)] rounded-md select-none">
-				<input aria-label={i18n(I18nKey.themeColor)} type="range" min="0" max="360" bind:value={hue}
-					   class="slider" id="colorSlider" step="5" style="width: 100%">
+			<div class="w-full h-6 px-1 rounded-md select-none flex items-center bg-(--btn-regular-bg)">
+				<input aria-label={i18n(I18nKey.themeColor)} type="color" bind:value={themeColor}
+					   class="color-picker-shell w-full h-4 rounded cursor-pointer" id="colorSlider" style="background: var(--theme-color)">
 			</div>
 		</div>
 		{/if}

@@ -1,11 +1,12 @@
 ---
-import { backgroundWallpaper, siteConfig } from "@/config";
+import { backgroundWallpaper } from "@/config";
+import { resolveThemeColor } from "@/utils/color-utils";
 ---
 
 <!-- 全局配置载体 -->
 <div
   id="config-carrier"
-  data-hue={siteConfig.themeColor.hue}
+  data-theme-color={resolveThemeColor()}
   data-wallpaper-mode={backgroundWallpaper.mode}
 >
 </div>

@@ -35,6 +35,7 @@ import type { Favicon } from "@/types/config";
 import { isHomePage } from "@/utils/layout-utils";
 import { getAuthorAvatarUrl, getSiteLogo } from "@/utils/schema-image";
 import { buildSiteGraph, toAbsoluteUrl } from "@/utils/schema-utils";
+import { resolveThemeColor } from "@/utils/color-utils";
 import { url } from "@/utils/url-utils";
 
 import "@/styles/main.css";
@@ -69,7 +70,7 @@ const isHomePageCheck = isHomePage(Astro.url.pathname);
 
 // defines global css variables
 // why doing this in Layout instead of GlobalStyles: https://github.com/withastro/astro/issues/6728#issuecomment-1502203757
-const configHue = siteConfig.themeColor.hue;
+const configThemeColor = resolveThemeColor();
 
 // 获取导航栏透明模式配置（banner 模式专属）
 const navbarTransparentMode =
@@ -303,9 +304,9 @@ const siteLogo = await getSiteLogo();
     <script
       is:inline
       define:vars={{
-        PAGE_WIDTH,
-        configHue,
-        defaultMode: siteConfig.themeColor.defaultMode ?? "light",
+      PAGE_WIDTH,
+      configThemeColor,
+      defaultMode: siteConfig.themeColor.defaultMode ?? "light",
         defaultWallpaperMode: backgroundWallpaper.mode,
         isWallpaperSwitchable:
           displaySettingsConfig.wallpaperModeSwitchable,
@@ -355,9 +356,9 @@ const siteLogo = await getSiteLogo();
         isDark ? darkTheme : lightTheme
       );
 
-      // Load the hue from local storage
-      const hue = localStorage.getItem("hue") || configHue;
-      document.documentElement.style.setProperty("--hue", hue);
+      // Load the theme color from local storage
+      const themeColor = localStorage.getItem("themeColor") || configThemeColor;
+      document.documentElement.style.setProperty("--theme-color", themeColor);
 
       // 设置卡片透明度（全屏透明模式下使用），优先使用用户自定义值
       const storedCardOpacity = localStorage.getItem("overlayCardOpacity");
@@ -431,7 +432,7 @@ const siteLogo = await getSiteLogo();
     </script>
     <style
       define:vars={{
-        configHue,
+        configThemeColor,
         "page-width": `${siteConfig.pageWidth ?? PAGE_WIDTH}rem`,
         "navbar-panel-blur": `${navbarPanelBlur}px`,
         "banner-height-home": `${BANNER_HEIGHT_HOME}vh`,

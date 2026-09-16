@@ -47,7 +47,7 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 		// 移动背景图片（支持单张或多张随机）
 		// mobile: "assets/images/MobileWallpaper/m1.avif",
 		mobile: [
-			"assets/images/MobileWallpaper/m1.png",
+			"assets/images/MobileWallpaper/m1.jpg",
 			"assets/images/MobileWallpaper/m2.jpg",
 			"assets/images/MobileWallpaper/m3.jpg",
 		],
@@ -55,7 +55,7 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 		// 支持单个视频路径（字符串）或多个视频循环（数组，参考上面壁纸配置）
 		// 支持远程视频URL，本地视频请放在 public/assets/videos/ 目录下
 		// playerUrl: "/assets/videos/firefly.mp4",
-		playerUrl: "https://bed.twoleaf.cn/file/1785658612716_firefly.mp4",
+		playerUrl: "/assets/videos/v1.mp4",
 	},
 	// 横幅壁纸和全屏壁纸共享配置
 	common: {
@@ -73,15 +73,14 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			titleSize: "3rem",
 			// 主页横幅副标题
 			subtitle: [
-				"In Reddened Chrysalis, I Once Rest",
-				"From Shattered Sky, I Free Fall",
-				"Amidst Silenced Stars, I Deep Sleep",
-				"Upon Lighted Fyrefly, I Soon Gaze",
-				"From Undreamt Night, I Thence Shine",
-				"In Finalized Morrow, I Full Bloom",
+				"立ち上がるよ、君のためなら、何百回だって立ち上がる",
+				"時間はとても思いやりがある一方で、とても残酷でもある",
+				"時を遡り、夕に嘆き、善を留め痕を残す",
+				"もしも……ただもしもだよ、1年、1年、また1年……7月7日の雨が止むことなく降り続け、二人を隔てる銀河がずっと荒れ狂っていたら……そんな時でも二人は、互いを思い続けるのかな?",
+				"人の心の変化は自分でも予想できないことがある",
 			],
 			// 主页横幅副标题字体大小
-			subtitleSize: "1.5rem",
+			subtitleSize: "1rem",
 			typewriter: {
 				// 是否启用打字机效果
 				// 打字机开启 → 循环显示所有副标题
