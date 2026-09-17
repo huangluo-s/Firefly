@@ -118,6 +118,12 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 				external: true,
 				icon: "fa7-brands:qq",
 			},
+			{
+				name: "Bilibili",
+				url: "https://space.bilibili.com/650850366",
+				external: true,
+				icon: "fa7-brands:bilibili",
+			},
 			// {
 			// 	name: "Firefly文档",
 			// 	url: "https://docs-firefly.cuteleaf.cn",

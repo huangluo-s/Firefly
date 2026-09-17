@@ -110,10 +110,15 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 					url: "mailto:513542959@qq.com",
 				},
 				{
-					name: "Sponsor",
-					icon: "material-symbols:favorite",
-					url: "https://blog.cuteleaf.cn/sponsor/",
+					name:"Bilibili",
+					icon:"fa7-brands:bilibili",
+					url:"https://space.bilibili.com/650850366",
 				},
+				// {
+				// 	name: "Sponsor",
+				// 	icon: "material-symbols:favorite",
+				// 	url: "https://blog.cuteleaf.cn/sponsor/",
+				// },
 				// {
 				// 	name: "RSS",
 				// 	icon: "fa7-solid:rss",

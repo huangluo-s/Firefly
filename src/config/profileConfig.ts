@@ -9,10 +9,10 @@ export const profileConfig: ProfileConfig = {
 	avatar: "assets/images/Nightmare.avif",
 
 	// 名字
-	name: "Nightmare",
+	name: "煌荦",
 
 	// 个人签名
-	bio: "Hello, I'm Nightmare.",
+	bio: "Hello, I'm huangluo-s.",
 
 	// 链接配置
 	// 已经预装的图标集：fa7-brands，fa7-regular，fa7-solid，material-symbols，simple-icons
@@ -37,6 +37,12 @@ export const profileConfig: ProfileConfig = {
 			name: "Email",
 			icon: "fa7-solid:envelope",
 			url: "mailto:513542959@qq.com",
+			showName: false,
+		},
+		{
+			name: "Bilibili",
+			icon: "fa7-brands:bilibili",
+			url: "https://space.bilibili.com/650850366",
 			showName: false,
 		},
 		// {
