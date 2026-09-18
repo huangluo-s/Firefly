@@ -146,7 +146,7 @@ export const booknavConfig: BooknavGroup[] = [
 				weight: 10,
 			},
 			{
-				title: "煌落",
+				title: "煌荦",
 				url: "https://blog.513542959.xyz",
 				desc: "",
 				weight: 9,
