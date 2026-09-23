@@ -96,6 +96,19 @@
     }
   }
 
+  /* 行内高亮：:mark[] 指令渲染为 <mark>，底色跟随主题色 */
+  mark {
+    @apply rounded px-[0.25em] py-[0.05em];
+    color: inherit;
+    background-color: color-mix(in oklch, var(--theme-color) 15%, #ffffff);
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+
+    .dark & {
+      background-color: color-mix(in oklch, var(--theme-color) 35%, #1a1a1a);
+    }
+  }
+
   .expressive-code {
     @apply my-4;
   }

@@ -20,7 +20,7 @@ Firefly 项目中所有可复用组件的集中管理。组件按照功能和职
 - `CategoryBar.astro` - 分类栏组件
 - `ConfigCarrier.astro` - 配置载体组件
 - `DropdownMenu.astro` - 下拉菜单组件
-- `Footer.astro` - 页脚组件
+- `astro` - 页脚组件
 - `Navbar.astro` - 导航栏组件
 - `NavMenuPanel.astro` - 导航菜单面板
 - `PostCard.astro` - 文章卡片组件
